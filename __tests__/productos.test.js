@@ -24,6 +24,3 @@ test("Test para el boton pantalones", () => {
         expect(item).toHaveProperty("categoria", "pantalones")
     })
 })
-
-
-
