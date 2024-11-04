@@ -1,11 +1,6 @@
 const filtrarProductos = require('../js/productos');
 
-//const fs = require("fs")
-//const API = "./api/productos.json"
-//const productos = JSON.parse(fs.readFileSync(API, "utf-8"))
-
 const productos = []
-
 fetch("../api/productos.json")
 .then(response => response.json())
 .then(data => {
