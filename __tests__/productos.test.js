@@ -1,12 +1,6 @@
 const filtrarProductos = require('../js/productos');
 
-const productos = []
-fetch("../api/productos.json")
-.then(response => response.json())
-.then(data => {
-  productos = data;
-})
-.catch((error) => { console.error(error) })
+const productos = require("../api/productos.json")
 
 // Escribir los tests debajo
 
@@ -29,4 +23,40 @@ test("Test para el boton pantalones", () => {
     result.forEach((item) => {
         expect(item).toHaveProperty("categoria", "pantalones")
     })
+})
+
+test("contabilizar camperas", () => {
+    const cantidad = 5
+    let resultado = 0
+    const camperas = filtrarProductos(productos, "camperas")
+    camperas.forEach((item) => {
+        if (item) {
+            resultado++
+        }
+    })
+    expect(resultado).toBe(cantidad)
+})
+
+test("contabilizar remeras", () => {
+    const cantidad = 8
+    let resultado = 0
+    const remeras = filtrarProductos(productos, "remeras")
+    remeras.forEach((item) => {
+        if (item) {
+            resultado++
+        }
+    })
+    expect(resultado).toBe(cantidad)
+})
+
+test("contabilizar pantalones", () => {
+    const cantidad = 5
+    let resultado = 0
+    const pantalones = filtrarProductos(productos, "pantalones")
+    pantalones.forEach((item) => {
+        if (item) {
+            resultado++
+        }
+    })
+    expect(resultado).toBe(cantidad)
 })
